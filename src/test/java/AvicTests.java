@@ -96,27 +96,25 @@ public class AvicTests {
     }
 
     @Test(priority = 4)
-    public void check (){
-        driver.findElement(xpath("//span[@class='sidebar-item']")).click();//каталог товаров
-        driver.findElement(xpath("//ul[contains(@class,'sidebar-list')]//a[contains(@href, 'apple-store')]")).click();//Apple Store
-        driver.findElement(xpath("//div[@class='brand-box__title']/a[contains(@href,'iphone')]")).click();//iphone
+    public void checkEmptyingBasket (){
+        driver.findElement(xpath("//span[@class='sidebar-item']")).click();
+        driver.findElement(xpath("//ul[contains(@class,'sidebar-list')]//a[contains(@href, 'apple-store')]")).click();
+        driver.findElement(xpath("//div[@class='brand-box__title']/a[contains(@href,'iphone')]")).click();
         new WebDriverWait(driver, 30).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));//wait for page loading
-        driver.findElement(xpath("//a[@class='prod-cart__buy'][contains(@data-ecomm-cart,'Starlight (MLPG3)')]")).click();//add to cart iphone
-        WebDriverWait wait = new WebDriverWait(driver, 30);//ждем пока не отобразится попап с товаром добавленным в корзину
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+        driver.findElement(xpath("//a[@class='prod-cart__buy'][contains(@data-ecomm-cart,'Starlight (MLPG3)')]")).click();
+        WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("js_cart")));
-        driver.findElement(xpath("//div[@class='btns-cart-holder']//a[contains(@class,'btn--orange')]")).click();//продолжить покупки
+        driver.findElement(xpath("//div[@class='btns-cart-holder']//a[contains(@class,'btn--orange')]")).click();
         driver.findElement(xpath("//div[@class='header-bottom__cart active-cart flex-wrap middle-xs js-btn-open']"));
         driver.findElement(xpath("//i[@class='icon icon-close js-btn-close']"));
         new WebDriverWait(driver, 30).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
         String actualProductsCountInCart =
                 driver.findElement(xpath("//div[contains(@class,'header-bottom__cart')]//div[contains(@class,'cart_count')]"))
-                        .getText();//получили 1 которая в корзине (один продукт)
+                        .getText();
         assertEquals(actualProductsCountInCart, "");
     }
-
-
 
     @AfterMethod
     public void tearDown(){
