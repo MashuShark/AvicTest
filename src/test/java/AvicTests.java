@@ -75,15 +75,7 @@ public class AvicTests {
         driver.findElement(xpath("//li[@class='parent js_sidebar-item']/a[contains(@href, 'telefonyi-i-aksessuaryi')]")).click();
         driver.findElement(xpath("//div[@class='brand-box__title']//a[contains(@href,'smartfonyi')]")).click();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-//        WebElement testDropDown = driver.findElement(By.cssSelector(".js-select.sort-select.js_sort_select.select2-hidden-accessible"));
-//        Select dropdown = new Select(testDropDown);
-//        dropdown.selectByValue("priceasc");
-
-//        driver.findElement(By.cssSelector(".js-select.sort-select.js_sort_select.select2-hidden-accessible")).click();
         driver.findElement(xpath("//div[@class='category-top']//span[@class='select2 select2-container select2-container--sort select2-container--default']//span[@class='select2-selection select2-selection--single']")).click();
-//        driver.findElement(By.cssSelector(".select2-selection.select2-selection--single")).click();
-//        driver.findElement(By.cssSelector(".select2.select2-container.select2-container--sort.select2-container--default.select2-container--above.select2-container--focus")).click();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.findElement(xpath("//li[text()='От дешевых к дорогим']")).click();
 
