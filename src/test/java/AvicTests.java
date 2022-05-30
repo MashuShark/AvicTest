@@ -53,8 +53,7 @@ public class AvicTests {
         moveToSeeAll.moveToElement(seeAll);
         moveToSeeAll.perform();
         seeAll.click();
-        // ничего лучше не придумала как испольховать индекс так, как таких кнопки 4, предки с одинаковыми именами
-
+        
         String pathToRazer = "//div[@class='filter-area js_filter_parent']//a[contains(@href, razer)][text()='Razer']";
         WebElement razer = driver.findElement(xpath(pathToRazer));
         Actions moveToRazer = new Actions(driver);
