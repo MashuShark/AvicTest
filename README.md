@@ -17,4 +17,4 @@ Test 4:
 Check empty basket after removing items
 
 ### Tools:	testNG, XPath, Selenium WebDriver, Selenium Action Class, Explicit wait;
-### Technologies:	Java.
+### Technologies:	Java, maven.
